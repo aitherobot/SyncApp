@@ -32,13 +32,13 @@ P2PSync is a high-performance, peer-to-peer (P2P) file synchronization applicati
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/[Your-Username]/P2PSync.git
-   cd P2PSync
+   git clone https://github.com/aitherobot/SyncApp.git
+   cd SyncApp
    ```
 
 2. **Build the solution**:
    ```bash
-   dotnet build P2PSync.sln
+   dotnet build FYPSync.sln
    ```
 
 ### Usage
