@@ -8,35 +8,39 @@
         Title="P2P File Sync"
         Height="620" Width="860"
         WindowStartupLocation="CenterScreen"
-        Background="#0F1923"
+        Background="#F4F6F9"
         FontFamily="Segoe UI">
 
     <Window.Resources>
 
-        <!-- Colors -->
-        <SolidColorBrush x:Key="BgBase"      Color="#0F1923"/>
-        <SolidColorBrush x:Key="BgCard"      Color="#162030"/>
-        <SolidColorBrush x:Key="BgInput"     Color="#1C2B3A"/>
-        <SolidColorBrush x:Key="BorderMuted" Color="#263547"/>
-        <SolidColorBrush x:Key="BorderHover" Color="#2D78D6"/>
-        <SolidColorBrush x:Key="Accent"      Color="#2D78D6"/>
-        <SolidColorBrush x:Key="AccentHover" Color="#3D8DE6"/>
-        <SolidColorBrush x:Key="TextPrimary" Color="#E2EAF4"/>
-        <SolidColorBrush x:Key="TextMuted"   Color="#6B8299"/>
-        <SolidColorBrush x:Key="TextMono"    Color="#8FBCDC"/>
-        <SolidColorBrush x:Key="StatusIdle"  Color="#6B8299"/>
-        <SolidColorBrush x:Key="StatusGreen" Color="#3FB950"/>
+        <!-- ── Light Theme Palette ─────────────────────────────────── -->
+        <SolidColorBrush x:Key="BgBase"       Color="#F4F6F9"/>
+        <SolidColorBrush x:Key="BgCard"       Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="BgCardAlt"    Color="#F0F4F8"/>
+        <SolidColorBrush x:Key="BgInput"      Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="BgBadge"      Color="#E8F0FB"/>
+        <SolidColorBrush x:Key="BorderMuted"  Color="#D0D7DE"/>
+        <SolidColorBrush x:Key="BorderHover"  Color="#0A84FF"/>
+        <SolidColorBrush x:Key="Accent"       Color="#0A84FF"/>
+        <SolidColorBrush x:Key="AccentHover"  Color="#0066CC"/>
+        <SolidColorBrush x:Key="AccentPressed" Color="#0055BB"/>
+        <SolidColorBrush x:Key="TextPrimary"  Color="#1F2937"/>
+        <SolidColorBrush x:Key="TextMuted"    Color="#6B7280"/>
+        <SolidColorBrush x:Key="TextMono"     Color="#0F4C81"/>
+        <SolidColorBrush x:Key="StatusIdle"   Color="#6B7280"/>
+        <SolidColorBrush x:Key="StatusGreen"  Color="#16A34A"/>
+        <SolidColorBrush x:Key="BgDisabled"   Color="#E5E7EB"/>
 
-        <!-- TextBox style -->
+        <!-- ── TextBox ─────────────────────────────────────────────── -->
         <Style x:Key="InputStyle" TargetType="TextBox">
-            <Setter Property="Background"   Value="#1C2B3A"/>
-            <Setter Property="Foreground"   Value="#8FBCDC"/>
-            <Setter Property="CaretBrush"   Value="#2D78D6"/>
-            <Setter Property="BorderBrush"  Value="#263547"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding"      Value="10,8"/>
-            <Setter Property="FontFamily"   Value="Cascadia Code, Consolas, Courier New"/>
-            <Setter Property="FontSize"     Value="13"/>
+            <Setter Property="Background"               Value="{StaticResource BgInput}"/>
+            <Setter Property="Foreground"               Value="{StaticResource TextPrimary}"/>
+            <Setter Property="CaretBrush"               Value="{StaticResource Accent}"/>
+            <Setter Property="BorderBrush"              Value="{StaticResource BorderMuted}"/>
+            <Setter Property="BorderThickness"          Value="1"/>
+            <Setter Property="Padding"                  Value="10,8"/>
+            <Setter Property="FontFamily"               Value="Cascadia Code, Consolas, Courier New"/>
+            <Setter Property="FontSize"                 Value="13"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -51,10 +55,10 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" Value="#2D78D6"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource BorderHover}"/>
                             </Trigger>
                             <Trigger Property="IsFocused" Value="True">
-                                <Setter Property="BorderBrush" Value="#2D78D6"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Accent}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -62,15 +66,15 @@
             </Setter>
         </Style>
 
-        <!-- Primary button -->
+        <!-- ── Primary Button ─────────────────────────────────────── -->
         <Style x:Key="PrimaryButton" TargetType="Button">
-            <Setter Property="Background"        Value="#2D78D6"/>
-            <Setter Property="Foreground"        Value="#E2EAF4"/>
-            <Setter Property="BorderThickness"   Value="0"/>
-            <Setter Property="Padding"           Value="18,9"/>
-            <Setter Property="FontSize"          Value="13"/>
-            <Setter Property="FontWeight"        Value="SemiBold"/>
-            <Setter Property="Cursor"            Value="Hand"/>
+            <Setter Property="Background"      Value="{StaticResource Accent}"/>
+            <Setter Property="Foreground"      Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding"         Value="18,9"/>
+            <Setter Property="FontSize"        Value="13"/>
+            <Setter Property="FontWeight"      Value="SemiBold"/>
+            <Setter Property="Cursor"          Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -83,10 +87,10 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bd" Property="Background" Value="#3D8DE6"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource AccentHover}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="Bd" Property="Background" Value="#1F6BC4"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource AccentPressed}"/>
                                 <Setter TargetName="Bd" Property="RenderTransform">
                                     <Setter.Value>
                                         <ScaleTransform ScaleX="0.98" ScaleY="0.98" CenterX="50" CenterY="12"/>
@@ -94,8 +98,8 @@
                                 </Setter>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="Bd" Property="Background" Value="#1C2B3A"/>
-                                <Setter Property="Foreground" Value="#3A5268"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BgDisabled}"/>
+                                <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -103,15 +107,15 @@
             </Setter>
         </Style>
 
-        <!-- Ghost button -->
+        <!-- ── Ghost Button ───────────────────────────────────────── -->
         <Style x:Key="GhostButton" TargetType="Button">
-            <Setter Property="Background"        Value="Transparent"/>
-            <Setter Property="Foreground"        Value="#8FBCDC"/>
-            <Setter Property="BorderBrush"       Value="#263547"/>
-            <Setter Property="BorderThickness"   Value="1"/>
-            <Setter Property="Padding"           Value="18,9"/>
-            <Setter Property="FontSize"          Value="13"/>
-            <Setter Property="Cursor"            Value="Hand"/>
+            <Setter Property="Background"      Value="Transparent"/>
+            <Setter Property="Foreground"      Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush"     Value="{StaticResource BorderMuted}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding"         Value="18,9"/>
+            <Setter Property="FontSize"        Value="13"/>
+            <Setter Property="Cursor"          Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -126,16 +130,16 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bd" Property="Background"   Value="#1C2B3A"/>
-                                <Setter TargetName="Bd" Property="BorderBrush"  Value="#2D78D6"/>
-                                <Setter Property="Foreground" Value="#E2EAF4"/>
+                                <Setter TargetName="Bd" Property="Background"  Value="{StaticResource BgCardAlt}"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Accent}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Accent}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="Bd" Property="Background" Value="#162030"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource BgBadge}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Foreground" Value="#3A5268"/>
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="#1C2B3A"/>
+                                <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource BgDisabled}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -143,13 +147,13 @@
             </Setter>
         </Style>
 
-        <!-- ListBox item -->
+        <!-- ── Log ListBoxItem ────────────────────────────────────── -->
         <Style x:Key="LogItemStyle" TargetType="ListBoxItem">
-            <Setter Property="Foreground"  Value="#8FBCDC"/>
-            <Setter Property="FontFamily"  Value="Cascadia Code, Consolas, Courier New"/>
-            <Setter Property="FontSize"    Value="12"/>
-            <Setter Property="Padding"     Value="8,3"/>
-            <Setter Property="Background"  Value="Transparent"/>
+            <Setter Property="Foreground"      Value="{StaticResource TextMono}"/>
+            <Setter Property="FontFamily"      Value="Cascadia Code, Consolas, Courier New"/>
+            <Setter Property="FontSize"        Value="12"/>
+            <Setter Property="Padding"         Value="8,3"/>
+            <Setter Property="Background"      Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -160,10 +164,10 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#1C2B3A"/>
+                                <Setter Property="Background" Value="{StaticResource BgBadge}"/>
                             </Trigger>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#1C2B3A"/>
+                                <Setter Property="Background" Value="{StaticResource BgBadge}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -171,7 +175,7 @@
             </Setter>
         </Style>
 
-        <!-- Pulse animation for status dot -->
+        <!-- ── Status dot pulse ───────────────────────────────────── -->
         <Storyboard x:Key="PulseAnim" RepeatBehavior="Forever">
             <DoubleAnimation Storyboard.TargetName="StatusDot"
                              Storyboard.TargetProperty="Opacity"
@@ -193,21 +197,21 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Header -->
+        <!-- ── Header ────────────────────────────────────────────── -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock Text="⬡" FontSize="20" Foreground="#2D78D6"
+            <TextBlock Text="⬡" FontSize="20" Foreground="{StaticResource Accent}"
                        VerticalAlignment="Center" Margin="0,0,10,0"/>
             <TextBlock Text="P2P File Sync" FontSize="18" FontWeight="SemiBold"
-                       Foreground="#E2EAF4" VerticalAlignment="Center"/>
+                       Foreground="{StaticResource TextPrimary}" VerticalAlignment="Center"/>
             <TextBlock Text="LAN · Serverless · Merkle-verified"
-                       FontSize="12" Foreground="#3A5268"
+                       FontSize="12" Foreground="{StaticResource TextMuted}"
                        VerticalAlignment="Center" Margin="14,2,0,0"/>
         </StackPanel>
 
-        <!-- Folder + Status card -->
+        <!-- ── Folder + Status card ───────────────────────────────── -->
         <Border Grid.Row="2"
-                Background="#162030"
-                BorderBrush="#263547"
+                Background="{StaticResource BgCard}"
+                BorderBrush="{StaticResource BorderMuted}"
                 BorderThickness="1"
                 CornerRadius="8"
                 Padding="16">
@@ -228,7 +232,7 @@
 
                     <TextBlock Grid.Column="0" Text="SYNC FOLDER"
                                FontSize="10" FontWeight="SemiBold"
-                               Foreground="#3A5268" VerticalAlignment="Center"
+                               Foreground="{StaticResource TextMuted}" VerticalAlignment="Center"
                                Margin="0,0,12,0"/>
                     <TextBox Grid.Column="1" x:Name="FolderPathTextBox"
                              IsReadOnly="True"
@@ -249,38 +253,39 @@
                     <!-- Status indicator -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                         <Ellipse x:Name="StatusDot" Width="8" Height="8"
-                                 Fill="#6B8299"
+                                 Fill="{StaticResource StatusIdle}"
                                  VerticalAlignment="Center"
                                  Margin="0,0,8,0"/>
                         <TextBlock Text="STATUS" FontSize="10" FontWeight="SemiBold"
-                                   Foreground="#3A5268" VerticalAlignment="Center"
+                                   Foreground="{StaticResource TextMuted}" VerticalAlignment="Center"
                                    Margin="0,0,8,0"/>
                         <TextBlock x:Name="StatusText" Text="Idle"
-                                   Foreground="#6B8299" FontSize="13"
+                                   Foreground="{StaticResource StatusIdle}" FontSize="13"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <!-- Peer count badge -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock Text="PEERS" FontSize="10" FontWeight="SemiBold"
-                                   Foreground="#3A5268" VerticalAlignment="Center"
+                                   Foreground="{StaticResource TextMuted}" VerticalAlignment="Center"
                                    Margin="0,0,8,0"/>
-                        <Border Background="#1C2B3A" BorderBrush="#263547"
+                        <Border Background="{StaticResource BgBadge}"
+                                BorderBrush="{StaticResource BorderMuted}"
                                 BorderThickness="1" CornerRadius="12"
                                 Padding="10,3">
                             <TextBlock x:Name="PeerCountText" Text="0 found"
                                        FontSize="12" FontFamily="Cascadia Code, Consolas, Courier New"
-                                       Foreground="#8FBCDC"/>
+                                       Foreground="{StaticResource TextMono}"/>
                         </Border>
                     </StackPanel>
                 </Grid>
             </Grid>
         </Border>
 
-        <!-- Activity Log card -->
+        <!-- ── Activity Log card ──────────────────────────────────── -->
         <Border Grid.Row="4"
-                Background="#162030"
-                BorderBrush="#263547"
+                Background="{StaticResource BgCard}"
+                BorderBrush="{StaticResource BorderMuted}"
                 BorderThickness="1"
                 CornerRadius="8">
             <Grid>
@@ -291,12 +296,12 @@
 
                 <!-- Log header -->
                 <Border Grid.Row="0"
-                        BorderBrush="#263547"
+                        BorderBrush="{StaticResource BorderMuted}"
                         BorderThickness="0,0,0,1"
                         Padding="16,10">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="ACTIVITY LOG" FontSize="10" FontWeight="SemiBold"
-                                   Foreground="#3A5268"
+                                   Foreground="{StaticResource TextMuted}"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </Border>
@@ -320,7 +325,7 @@
             </Grid>
         </Border>
 
-        <!-- Action buttons -->
+        <!-- ── Action buttons ─────────────────────────────────────── -->
         <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="RefreshButton"
                     Content="Refresh"
